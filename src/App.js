@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Divider } from "@mui/material";
+import "./App.css";
+import { Counter } from "./Components/Counter";
+import RichTextContent from "./Components/RichTextContent";
+import UserFrom from "./Components/UserFrom";
+import ViewUserDeatls from "./Components/ViewUserDeatls";
+import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/form" element={<UserFrom />} />
+          <Route path="/viewUserDeatls" element={<ViewUserDeatls />} />
+          <Route path="/richTextContent" element={<RichTextContent />} />
+          <Route path="/counter" element={<Counter />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
