@@ -1,7 +1,13 @@
 import { Grid, TextField, Button, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { Dialogbox } from "./Dialogbox";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+const fromStyle = {
+  border: "1px solid gray",
+  padding: "40px",
+  margin: "10px",
+  height: "fit-content",
+};
 
 const UserFrom = () => {
   const [unsavedChanges, setUnsavedChanges] = useState(false);
@@ -20,6 +26,23 @@ const UserFrom = () => {
     setUnsavedChanges(true);
   };
 
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (unsavedChanges) {
+        const confirmationMessage =
+          "You have unsaved changes or error. Are you sure you want to leave?";
+        e.returnValue = confirmationMessage; // Standard way
+        return confirmationMessage; // For legacy browsers
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [unsavedChanges]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let existingData = JSON.parse(localStorage.getItem("userData"));
@@ -32,21 +55,6 @@ const UserFrom = () => {
     setUnsavedChanges(false);
     setFormData({ name: "", email: "", phone: "", address: "" });
     navigate("/viewUserDeatls");
-  };
-
-  const handleCloseDialog = () => {
-    setUnsavedChanges(false);
-  };
-
-  const handleConfirmLeave = () => {
-    setUnsavedChanges(false);
-  };
-
-  const fromStyle = {
-    border: "1px solid gray",
-    padding: "40px",
-    margin: "10px",
-    height: "fit-content",
   };
 
   return (
@@ -106,11 +114,6 @@ const UserFrom = () => {
               >
                 Submit
               </Button>
-              <Dialogbox
-                handleCloseDialog={handleCloseDialog}
-                handleConfirmLeave={handleConfirmLeave}
-                unsavedChanges={unsavedChanges}
-              />
             </Grid>
           </Grid>
         </form>

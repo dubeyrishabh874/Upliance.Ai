@@ -1,15 +1,18 @@
-import { Divider, Button, AppBar } from "@mui/material";
+import { Divider } from "@mui/material";
 import { Counter } from "./Counter";
 import RichTextContent from "./RichTextContent";
 import UserFrom from "./UserFrom";
 import ViewUserDeatls from "./ViewUserDeatls";
 import Navbar from "./Navbar";
+import AnimationContent from "./AnimationContent";
+import { ChartContent } from "./ChartContent";
 
 const style = {
   display: "flex",
   justifyContent: "space-around",
-  height: "40vh",
-  padding: "30px",
+  height: "content-fit",
+  padding: "20px",
+  margin: "20px",
 };
 
 function Dashboard() {
@@ -24,6 +27,11 @@ function Dashboard() {
       <div style={{ ...style }}>
         <UserFrom />
         <ViewUserDeatls />
+      </div>
+      <Divider />
+      <div style={{ ...style }}>
+        <ChartContent />
+        <AnimationContent />
       </div>
     </>
   );
