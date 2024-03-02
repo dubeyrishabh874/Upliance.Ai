@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Upliance/static/css/main.5e292154.css",
-    "main.js": "/Upliance/static/js/main.46a04302.js",
-    "static/js/453.6002ac9e.chunk.js": "/Upliance/static/js/453.6002ac9e.chunk.js",
-    "index.html": "/Upliance/index.html",
-    "main.5e292154.css.map": "/Upliance/static/css/main.5e292154.css.map",
-    "main.46a04302.js.map": "/Upliance/static/js/main.46a04302.js.map",
-    "453.6002ac9e.chunk.js.map": "/Upliance/static/js/453.6002ac9e.chunk.js.map"
+    "main.css": "./static/css/main.5e292154.css",
+    "main.js": "./static/js/main.feac8864.js",
+    "static/js/453.6002ac9e.chunk.js": "./static/js/453.6002ac9e.chunk.js",
+    "index.html": "./index.html",
+    "main.5e292154.css.map": "./static/css/main.5e292154.css.map",
+    "main.feac8864.js.map": "./static/js/main.feac8864.js.map",
+    "453.6002ac9e.chunk.js.map": "./static/js/453.6002ac9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5e292154.css",
-    "static/js/main.46a04302.js"
+    "static/js/main.feac8864.js"
   ]
 }
